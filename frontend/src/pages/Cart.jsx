@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { Button, Card, Col, Form, Image } from "react-bootstrap";
-import { pizzaCart } from "./pizzas";
+import { pizzaCart } from "../components/pizzas";
 import miles from "../utils/miles";
 
 export const Cart = () => {

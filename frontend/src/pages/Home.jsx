@@ -1,5 +1,5 @@
-import Header from "./Header";
-import CardPizza from "./CardPizza";
+import Header from "../components/Header";
+import CardPizza from "../components/CardPizza";
 // Bootstrap
 
 import Container from "react-bootstrap/Container";
@@ -14,7 +14,6 @@ const Home = () => {
     const response = await fetch(url);
     const data = await response.json();
     setArray(data);
-    console.log(array);
   };
 
   useEffect(() => {
