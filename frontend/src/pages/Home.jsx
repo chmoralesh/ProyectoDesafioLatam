@@ -37,7 +37,8 @@ const Home = () => {
                   price={e.price}
                   ingredients={e.ingredients}
                   img={e.img}
-                  id={e.id}
+                  id={e.id.toUpperCase()}
+                  valor={e}
                 />
               </Col>
             ))}

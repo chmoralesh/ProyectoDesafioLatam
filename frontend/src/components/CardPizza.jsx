@@ -2,8 +2,21 @@ import Card from "react-bootstrap/Card";
 import ListGroup from "react-bootstrap/ListGroup";
 import Button from "react-bootstrap/Button";
 import miles from "../utils/miles";
+import { CartContext } from "../contexts/CartContext";
+import { useContext } from "react";
 
 const CardPizza = ({ name, price, ingredients, img, id }) => {
+  const { cart, setCart } = useContext(CartContext);
+
+  const totalUp = () => {
+    console.log(id);
+    console.log(id);
+    setCart(
+      cart.map((item) =>
+        item.id === id ? { ...item, count: item.count + 1 } : item
+      )
+    );
+  };
   return (
     <Card className="mb-3" style={{ width: "25rem" }}>
       <Card.Img variant="top" src={img} />
@@ -31,7 +44,9 @@ const CardPizza = ({ name, price, ingredients, img, id }) => {
         </Card.Title>
         <div className="d-flex justify-content-between align-items-center px-4 py-2">
           <Button variant="outline-info"> Ver Más 👀</Button>
-          <Button variant="dark">Añadir 🛒</Button>
+          <Button onClick={() => totalUp()} variant="dark">
+            Añadir 🛒
+          </Button>
         </div>
       </Card.Body>
     </Card>

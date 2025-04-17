@@ -5,11 +5,15 @@ import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
 import miles from "../utils/miles";
 import { Link } from "react-router-dom";
-
-const total = 200000;
-const token = false;
+import { CartContext } from "../contexts/CartContext";
+import { useContext } from "react";
+import TotalCalc from "../utils/TotalCalc";
 
 const Navbars = () => {
+  const { cart } = useContext(CartContext);
+
+  const token = false;
+
   return (
     <Navbar expand="lg" className="bg-dark sticky-top">
       <Container fluid>
@@ -72,7 +76,9 @@ const Navbars = () => {
           </Nav>
           <Form className="d-flex">
             <Link to="/cart">
-              <Button variant="outline-info">🛒 Total: ${miles(total)}</Button>
+              <Button variant="outline-info">
+                🛒 Total: ${miles(TotalCalc(cart))}
+              </Button>
             </Link>
           </Form>
         </Navbar.Collapse>

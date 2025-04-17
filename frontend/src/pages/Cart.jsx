@@ -1,10 +1,11 @@
-import React, { useState } from "react";
+import React, { useContext } from "react";
 import { Button, Card, Col, Form, Image } from "react-bootstrap";
-import { pizzaCart } from "../components/pizzas";
 import miles from "../utils/miles";
+import { CartContext } from "../contexts/CartContext";
+import TotalCalc from "../utils/TotalCalc";
 
 export const Cart = () => {
-  const [cart, setCart] = useState(pizzaCart);
+  const { cart, setCart } = useContext(CartContext);
 
   const totalUp = (e) => {
     setCart(
@@ -23,10 +24,6 @@ export const Cart = () => {
           : item
       )
     );
-  };
-
-  const totalCalc = () => {
-    return cart.reduce((acc, item) => acc + item.price * item.count, 0);
   };
 
   return (
@@ -82,7 +79,7 @@ export const Cart = () => {
           )}
 
           <Card.Title as="h2" className="my-3">
-            Total: ${miles(totalCalc())}
+            Total: ${miles(TotalCalc(cart))}
           </Card.Title>
           <Button variant="dark">Pagar</Button>
         </Card.Body>
