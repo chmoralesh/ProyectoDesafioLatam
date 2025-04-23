@@ -5,13 +5,16 @@ import "./index.css";
 import App from "./App.jsx";
 import { BrowserRouter } from "react-router-dom";
 import CartProvider from "./contexts/CartContext.jsx";
+import TokenProvider from "./contexts/TokenContext.jsx";
 
 createRoot(document.getElementById("root")).render(
   <StrictMode>
     <CartProvider>
-      <BrowserRouter>
-        <App />
-      </BrowserRouter>
+      <TokenProvider>
+        <BrowserRouter>
+          <App />
+        </BrowserRouter>
+      </TokenProvider>
     </CartProvider>
   </StrictMode>
 );

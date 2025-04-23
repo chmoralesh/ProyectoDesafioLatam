@@ -4,15 +4,18 @@ import Form from "react-bootstrap/Form";
 import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
 import miles from "../utils/miles";
-import { Link } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 import { CartContext } from "../contexts/CartContext";
 import { useContext } from "react";
 import TotalCalc from "../utils/TotalCalc";
+import { TokenContext } from "../contexts/TokenContext";
 
 const Navbars = () => {
   const { cart } = useContext(CartContext);
 
-  const token = false;
+  const { token, logout } = useContext(TokenContext);
+
+  console.log(token);
 
   return (
     <Navbar expand="lg" className="bg-dark sticky-top">
@@ -27,59 +30,81 @@ const Navbars = () => {
             style={{ maxHeight: "100px" }}
             navbarScroll
           >
-            <Link to="/">
-              <Button className="rounded mx-2" variant="outline-light">
-                🍕 Home
-              </Button>
-            </Link>
+            <NavLink to="/">
+              {({ isActive }) => (
+                <Button
+                  className={`rounded mx-2 ${
+                    isActive ? "text-info border-info" : "text-white"
+                  }`}
+                  variant="outline-light"
+                >
+                  🍕 Home
+                </Button>
+              )}
+            </NavLink>
 
             {token ? (
-              <Link to="/login">
-                <Button className="rounded mx-2" variant="outline-light">
-                  🔓 Profile
-                </Button>
-              </Link>
+              <NavLink to="/profile">
+                {({ isActive }) => (
+                  <Button
+                    className={`rounded mx-2 ${
+                      isActive ? "text-info border-info" : "text-white"
+                    }`}
+                    variant="outline-light"
+                  >
+                    🔓 Profile
+                  </Button>
+                )}
+              </NavLink>
             ) : (
-              <Link to="/login">
-                <Button className="rounded mx-2" variant="outline-light">
-                  🔐 Login
-                </Button>
-              </Link>
+              <NavLink to="/login">
+                {({ isActive }) => (
+                  <Button
+                    className={`rounded mx-2 ${
+                      isActive ? "text-info border-info" : "text-white"
+                    }`}
+                    variant="outline-light"
+                  >
+                    🔐 Login
+                  </Button>
+                )}
+              </NavLink>
             )}
-            {/* Eliminar el siguiente operador ternario al habilitar variable token, agregado solo para cumplit hito 5 */}
+
             {token ? (
-              <Link to="/login">
-                <Button className="rounded mx-2" variant="outline-light">
-                  🔓 Login
-                </Button>
-              </Link>
-            ) : (
-              <Link to="/profile">
-                <Button className="rounded mx-2" variant="outline-light">
-                  🔐 Profile
-                </Button>
-              </Link>
-            )}
-            {token ? (
-              <Link to="/register">
+              <NavLink to="/" onClick={logout}>
                 <Button className="rounded mx-2" variant="outline-light">
                   🔓 Logout
                 </Button>
-              </Link>
+              </NavLink>
             ) : (
-              <Link to="/register">
-                <Button className="rounded mx-2" variant="outline-light">
-                  🔐 Register
-                </Button>
-              </Link>
+              <NavLink to="/register">
+                {({ isActive }) => (
+                  <Button
+                    className={`rounded mx-2 ${
+                      isActive ? "text-info border-info" : "text-white"
+                    }`}
+                    variant="outline-light"
+                  >
+                    🔐 Register
+                  </Button>
+                )}
+              </NavLink>
             )}
           </Nav>
           <Form className="d-flex">
-            <Link to="/cart">
-              <Button variant="outline-info">
-                🛒 Total: ${miles(TotalCalc(cart))}
-              </Button>
-            </Link>
+            <NavLink to="/cart">
+              {({ isActive }) => (
+                <Button
+                  className={`rounded mx-2 ${
+                    isActive ? "text-info border-info" : "text-white"
+                  }`}
+                  variant="outline-light"
+                >
+                  🛒 Total: ${miles(TotalCalc(cart))}
+                </Button>
+              )}
+            </NavLink>
           </Form>
         </Navbar.Collapse>
       </Container>

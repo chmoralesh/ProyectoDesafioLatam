@@ -2,14 +2,19 @@ import Card from "react-bootstrap/Card";
 import ListGroup from "react-bootstrap/ListGroup";
 import Button from "react-bootstrap/Button";
 import miles from "../utils/miles";
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 
 import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
+import { useParams } from "react-router-dom";
+import { CartContext } from "../contexts/CartContext";
 
-export const Pizza = ({ id }) => {
+export const Pizza = () => {
   const [pizza, setPizza] = useState({});
+  const { cart, setCart } = useContext(CartContext);
+  const { code } = useParams();
+  const idUp = code.toUpperCase();
 
   const callApi = async (url) => {
     const response = await fetch(url);
@@ -18,12 +23,22 @@ export const Pizza = ({ id }) => {
   };
 
   useEffect(() => {
-    try {
-      callApi("http://localhost:5000/api/pizzas/P001");
-    } catch (error) {
-      console.log(error);
+    if (code) {
+      try {
+        callApi(`http://localhost:5000/api/pizzas/${code}`);
+      } catch (error) {
+        console.log(error);
+      }
     }
-  }, []);
+  }, [code]);
+
+  const totalUp = () => {
+    setCart(
+      cart.map((item) =>
+        item.id === idUp ? { ...item, count: item.count + 1 } : item
+      )
+    );
+  };
 
   return (
     <Container>
@@ -48,7 +63,7 @@ export const Pizza = ({ id }) => {
                           {/* 🍕{" "} */}
                           {Array.isArray(pizza.ingredients)
                             ? pizza.ingredients.map((e, index) => (
-                                <li className="" key={`${id}-${index}`}>
+                                <li className="" key={`${code}-${index}`}>
                                   {e}
                                 </li>
                               ))
@@ -69,7 +84,9 @@ export const Pizza = ({ id }) => {
                   Precio: $ {miles(pizza.price)}
                 </Card.Title>
                 <div className="d-flex justify-content-between align-items-center px-4 py-2">
-                  <Button variant="dark">Añadir 🛒</Button>
+                  <Button onClick={() => totalUp()} variant="dark">
+                    Añadir 🛒
+                  </Button>
                 </div>
               </Card.Body>
             </Card>

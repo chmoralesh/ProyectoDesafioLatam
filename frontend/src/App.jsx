@@ -8,18 +8,21 @@ import { Pizza } from "./pages/Pizza";
 import { Route, Routes } from "react-router-dom";
 import { Profile } from "./pages/Profile";
 import { Pagina404 } from "./pages/404";
+import { useContext } from "react";
+import { TokenContext } from "./contexts/TokenContext";
 
 const App = () => {
+  const { token } = useContext(TokenContext);
   return (
     <>
       <Navbars />
       <Routes>
         <Route path="/" element={<Home />} />
-        <Route path="/register" element={<Register />} />
-        <Route path="/login" element={<Login />} />
+        <Route path="/register" element={token ? <Home /> : <Register />} />
+        <Route path="/login" element={token ? <Home /> : <Login />} />
         <Route path="/cart" element={<Cart />} />
-        <Route path="/pizza/p001" element={<Pizza />} />
-        <Route path="/profile" element={<Profile />} />
+        <Route path="/pizza/:code" element={<Pizza />} />
+        <Route path="/profile" element={token ? <Profile /> : <Login />} />
         <Route path="*" element={<Pagina404 />} />
       </Routes>
       <Footer />

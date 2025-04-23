@@ -3,9 +3,11 @@ import { Button, Card, Col, Form, Image } from "react-bootstrap";
 import miles from "../utils/miles";
 import { CartContext } from "../contexts/CartContext";
 import TotalCalc from "../utils/TotalCalc";
+import { TokenContext } from "../contexts/TokenContext";
 
 export const Cart = () => {
   const { cart, setCart } = useContext(CartContext);
+  const { token } = useContext(TokenContext);
 
   const totalUp = (e) => {
     setCart(
@@ -81,7 +83,9 @@ export const Cart = () => {
           <Card.Title as="h2" className="my-3">
             Total: ${miles(TotalCalc(cart))}
           </Card.Title>
-          <Button variant="dark">Pagar</Button>
+          <Button variant="dark" disabled={!token}>
+            Pagar
+          </Button>
         </Card.Body>
       </Card>
     </>
