@@ -1,13 +1,16 @@
-import React, { useContext } from "react";
+import React, { useContext, useEffect } from "react";
 import { Button, Card, Col, Form, Image } from "react-bootstrap";
 import miles from "../utils/miles";
 import { CartContext } from "../contexts/CartContext";
 import TotalCalc from "../utils/TotalCalc";
 import { TokenContext } from "../contexts/TokenContext";
+import { UserContext } from "../contexts/UserContext";
+import Swal from "sweetalert2";
 
 export const Cart = () => {
   const { cart, setCart } = useContext(CartContext);
   const { token } = useContext(TokenContext);
+  const { actualToken } = useContext(UserContext);
 
   const totalUp = (e) => {
     setCart(
@@ -27,6 +30,36 @@ export const Cart = () => {
       )
     );
   };
+  const handlePayment = async (e) => {
+    e.preventDefault();
+    const response = await fetch("http://localhost:5000/api/checkouts", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: `Bearer ${actualToken}`,
+      },
+      body: JSON.stringify({ cart: "hola" }),
+    });
+    const data = await response.json();
+    if (response.ok) {
+      Swal.fire({
+        title: "Compra realizada con éxito, carrito ha sido limpiado",
+        icon: "success",
+        draggable: true,
+      });
+      setCart(cart.map((item) => (item ? { ...item, count: 0 } : item)));
+    } else {
+      Swal.fire({
+        title: "Error al procesar la compra",
+        icon: "error",
+        draggable: true,
+      });
+    }
+  };
+
+  useEffect(() => {
+    console.log(cart);
+  }, [cart]);
 
   return (
     <>
@@ -83,7 +116,11 @@ export const Cart = () => {
           <Card.Title as="h2" className="my-3">
             Total: ${miles(TotalCalc(cart))}
           </Card.Title>
-          <Button variant="dark" disabled={!token}>
+          <Button
+            onClick={(e) => handlePayment(e)}
+            variant="dark"
+            disabled={!token}
+          >
             Pagar
           </Button>
         </Card.Body>

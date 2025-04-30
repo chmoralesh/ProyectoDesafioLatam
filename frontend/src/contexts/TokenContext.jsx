@@ -5,18 +5,14 @@ export const TokenContext = createContext();
 
 //creo y exporto al proveedor
 
-const CartProvider = ({ children }) => {
-  const [token, setToken] = useState(true);
-
-  const logout = () => {
-    setToken(false);
-  };
+const TokenProvider = ({ children }) => {
+  const [token, setToken] = useState(null);
 
   return (
-    <TokenContext.Provider value={{ token, logout }}>
+    <TokenContext.Provider value={{ token, setToken }}>
       {children}
     </TokenContext.Provider>
   );
 };
 
-export default CartProvider;
+export default TokenProvider;

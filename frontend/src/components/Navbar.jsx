@@ -6,16 +6,17 @@ import Navbar from "react-bootstrap/Navbar";
 import miles from "../utils/miles";
 import { NavLink } from "react-router-dom";
 import { CartContext } from "../contexts/CartContext";
-import { useContext } from "react";
+import { useContext, useEffect } from "react";
 import TotalCalc from "../utils/TotalCalc";
 import { TokenContext } from "../contexts/TokenContext";
+import { UserContext } from "../contexts/UserContext";
 
 const Navbars = () => {
   const { cart } = useContext(CartContext);
+  const { logout } = useContext(UserContext);
 
-  const { token, logout } = useContext(TokenContext);
-
-  console.log(token);
+  const { token } = useContext(TokenContext);
+  useEffect(() => {}, [token]);
 
   return (
     <Navbar expand="lg" className="bg-dark sticky-top">

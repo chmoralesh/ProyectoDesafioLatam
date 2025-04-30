@@ -1,10 +1,12 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import Swal from "sweetalert2";
 
 import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
+import { UserContext } from "../contexts/UserContext";
 
 const Register = () => {
+  const { handleRegister } = useContext(UserContext);
   //estado para email
   const [email, setEmail] = useState("");
   const [errorEmail, setErrorEmail] = useState(false);
@@ -63,11 +65,13 @@ const Register = () => {
       return;
     }
 
-    Swal.fire({
-      title: "Usuario registrado correctamente",
-      icon: "success",
-      draggable: true,
-    });
+    handleRegister(e, email, pass1);
+
+    // Swal.fire({
+    //   title: "Usuario registrado correctamente",
+    //   icon: "success",
+    //   draggable: true,
+    // });
 
     setErrorEmail(false);
     setErrorPass1(false);
@@ -93,6 +97,7 @@ const Register = () => {
           placeholder="Ingrese su email"
           value={email}
           onChange={(e) => handleChangeEmail(e)}
+          autoComplete="username"
         />
         <Form.Text className="text-muted">
           {errorEmail ? (
@@ -108,6 +113,7 @@ const Register = () => {
           placeholder="Ingrese su contraseña"
           value={pass1}
           onChange={(e) => handleChangePass1(e)}
+          autoComplete="new-password"
         />
         <Form.Text className="text-muted">
           {errorPass1 ? (
@@ -125,6 +131,7 @@ const Register = () => {
           placeholder="Ingrese su contraseña nuevamente"
           value={pass2}
           onChange={(e) => handleChangePass2(e)}
+          autoComplete="new-password"
         />
         <Form.Text className="text-muted">
           {errorPass2 ? (

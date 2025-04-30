@@ -1,16 +1,21 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import Swal from "sweetalert2";
 
 import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
+import { UserContext } from "../contexts/UserContext";
+import { useNavigate } from "react-router-dom";
 
 const Login = () => {
+  const { handleLogin } = useContext(UserContext);
   //estado para email
   const [email, setEmail] = useState("");
   const [errorEmail, setErrorEmail] = useState(false);
   //estado para password 1
   const [password, setPassword] = useState("");
   const [errorPassword, setErrorPassword] = useState(false);
+
+  const navigate = useNavigate();
 
   //funciones
 
@@ -49,12 +54,14 @@ const Login = () => {
       });
       return;
     }
+    handleLogin(e, email, password);
+    navigate("/profile");
 
-    Swal.fire({
-      title: "Usuario ha ingresado correctamente",
-      icon: "success",
-      draggable: true,
-    });
+    // Swal.fire({
+    //   title: "Usuario ha ingresado correctamente",
+    //   icon: "success",
+    //   draggable: true,
+    // });
 
     setErrorEmail(false);
     setErrorPassword(false);
@@ -78,6 +85,7 @@ const Login = () => {
           placeholder="Ingrese su email"
           value={email}
           onChange={(e) => handleChangeEmail(e)}
+          autoComplete="username"
         />
         <Form.Text className="text-muted">
           {errorEmail ? (
@@ -93,6 +101,7 @@ const Login = () => {
           placeholder="Ingrese su contraseña"
           value={password}
           onChange={(e) => handleChangePass1(e)}
+          autoComplete="current-password"
         />
         <Form.Text className="text-muted">
           {errorPassword ? (
@@ -103,6 +112,7 @@ const Login = () => {
           ) : null}
         </Form.Text>
       </Form.Group>
+
       <Button variant="primary" type="submit">
         Enviar
       </Button>

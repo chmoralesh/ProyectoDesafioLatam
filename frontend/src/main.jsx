@@ -6,15 +6,18 @@ import App from "./App.jsx";
 import { BrowserRouter } from "react-router-dom";
 import CartProvider from "./contexts/CartContext.jsx";
 import TokenProvider from "./contexts/TokenContext.jsx";
+import UserProvider from "./contexts/UserContext.jsx";
 
 createRoot(document.getElementById("root")).render(
   <StrictMode>
-    <CartProvider>
-      <TokenProvider>
-        <BrowserRouter>
-          <App />
-        </BrowserRouter>
-      </TokenProvider>
-    </CartProvider>
+    <TokenProvider>
+      <UserProvider>
+        <CartProvider>
+          <BrowserRouter>
+            <App />
+          </BrowserRouter>
+        </CartProvider>
+      </UserProvider>
+    </TokenProvider>
   </StrictMode>
 );
