@@ -3,6 +3,8 @@ import { readFile, writeFile } from "node:fs/promises";
 const getUserByEmail = async (email) => {
   const data = await readFile("db/users.json", "utf-8");
   const users = JSON.parse(data);
+  // const userprint = users.find((user) => user.email === email);
+  // console.log(userprint);
   return users.find((user) => user.email === email);
 };
 

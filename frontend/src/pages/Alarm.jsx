@@ -10,8 +10,8 @@ import Col from "react-bootstrap/Col";
 import { useParams } from "react-router-dom";
 import { CartContext } from "../contexts/CartContext";
 
-export const Pizza = () => {
-  const [pizza, setPizza] = useState({});
+export const Alarm = () => {
+  const [alarma, setAlarma] = useState({});
   const { cart, setCart } = useContext(CartContext);
   const { code } = useParams();
   const idUp = code.toUpperCase();
@@ -19,13 +19,13 @@ export const Pizza = () => {
   const callApi = async (url) => {
     const response = await fetch(url);
     const data = await response.json();
-    setPizza(data);
+    setAlarma(data);
   };
 
   useEffect(() => {
     if (code) {
       try {
-        callApi(`http://localhost:5000/api/pizzas/${code}`);
+        callApi(`http://localhost:5000/api/alarmas/${code}`);
       } catch (error) {
         console.log(error);
       }
@@ -49,9 +49,9 @@ export const Pizza = () => {
             style={{ minWidth: "100%" }}
           >
             <Card className="mb-3 " style={{ width: "35%" }}>
-              <Card.Img variant="top" src={pizza.img} />
+              <Card.Img variant="top" src={alarma.img} />
               <Card.Body className="text-center">
-                <Card.Title>Pizza {pizza.name}</Card.Title>
+                <Card.Title>alarma {alarma.name}</Card.Title>
               </Card.Body>
               <ListGroup className="list-group-flush justify-content-center ">
                 <ListGroup.Item>
@@ -61,8 +61,8 @@ export const Pizza = () => {
                         <h5>Ingredientes:</h5>
                         <ul>
                           {/* 🍕{" "} */}
-                          {Array.isArray(pizza.ingredients)
-                            ? pizza.ingredients.map((e, index) => (
+                          {Array.isArray(alarma.ingredients)
+                            ? alarma.ingredients.map((e, index) => (
                                 <li className="" key={`${code}-${index}`}>
                                   {e}
                                 </li>
@@ -72,7 +72,7 @@ export const Pizza = () => {
                       </Col>
                       <Col>
                         <h5>Descripción:</h5>
-                        <p>{pizza.desc}</p>
+                        <p>{alarma.desc}</p>
                       </Col>
                     </Row>
                   </Container>
@@ -81,7 +81,7 @@ export const Pizza = () => {
 
               <Card.Body className="d-flex align-items-center flex-column">
                 <Card.Title className="text-center">
-                  Precio: $ {miles(pizza.price)}
+                  Precio: $ {miles(alarma.price)}
                 </Card.Title>
                 <div className="d-flex justify-content-between align-items-center px-4 py-2">
                   <Button onClick={() => totalUp()} variant="dark">

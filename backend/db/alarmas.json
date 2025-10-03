@@ -1,0 +1,778 @@
+[
+  {
+    "id": "A1",
+    "name": "Alta Temperatura Motor Principal",
+    "type": "NC",
+    "delay": 2000,
+    "inhibit": false,
+    "state": 5,
+    "group": 1
+  },
+  {
+    "id": "A2",
+    "name": "Baja Presión de Aceite",
+    "type": "NO",
+    "delay": 1000,
+    "inhibit": false,
+    "state": 3,
+    "group": 1
+  },
+  {
+    "id": "A3",
+    "name": "Falla Sensor Voltaje",
+    "type": "NC",
+    "delay": 1500,
+    "inhibit": false,
+    "state": 1,
+    "group": 3
+  },
+  {
+    "id": "A4",
+    "name": "Bomba Sentina Fallida",
+    "type": "NO",
+    "delay": 2000,
+    "inhibit": false,
+    "state": 0,
+    "group": 5
+  },
+  {
+    "id": "A5",
+    "name": "Nivel Agua Bajo",
+    "type": "NC",
+    "delay": 1500,
+    "inhibit": false,
+    "state": 1,
+    "group": 4
+  },
+  {
+    "id": "A6",
+    "name": "Fuga de Combustible Detectada",
+    "type": "NO",
+    "delay": 0,
+    "inhibit": false,
+    "state": 0,
+    "group": 1
+  },
+  {
+    "id": "A7",
+    "name": "Humo Detectado",
+    "type": "NC",
+    "delay": 500,
+    "inhibit": false,
+    "state": 0,
+    "group": 6
+  },
+  {
+    "id": "A8",
+    "name": "Corriente de Arranque Excesiva",
+    "type": "NO",
+    "delay": 500,
+    "inhibit": false,
+    "state": 0,
+    "group": 1
+  },
+  {
+    "id": "A9",
+    "name": "Bajo Nivel de Refrigerante",
+    "type": "NC",
+    "delay": 2500,
+    "inhibit": false,
+    "state": 0,
+    "group": 1
+  },
+  {
+    "id": "A10",
+    "name": "Alta Temperatura de Escape",
+    "type": "NO",
+    "delay": 1200,
+    "inhibit": false,
+    "state": 0,
+    "group": 1
+  },
+  {
+    "id": "A11",
+    "name": "Baja Tensión General",
+    "type": "NC",
+    "delay": 1000,
+    "inhibit": false,
+    "state": 0,
+    "group": 3
+  },
+  {
+    "id": "A12",
+    "name": "Fuego Detectado",
+    "type": "NO",
+    "delay": 1000,
+    "inhibit": false,
+    "state": 0,
+    "group": 6
+  },
+  {
+    "id": "A13",
+    "name": "RPM Motor Elevadas",
+    "type": "NC",
+    "delay": 500,
+    "inhibit": false,
+    "state": 0,
+    "group": 1
+  },
+  {
+    "id": "A14",
+    "name": "Sobre RPM Permitidas",
+    "type": "NO",
+    "delay": 800,
+    "inhibit": false,
+    "state": 0,
+    "group": 1
+  },
+  {
+    "id": "A15",
+    "name": "Bajo Nivel Combustible",
+    "type": "NC",
+    "delay": 2000,
+    "inhibit": false,
+    "state": 0,
+    "group": 4
+  },
+  {
+    "id": "A16",
+    "name": "Vibración Excesiva",
+    "type": "NO",
+    "delay": 1500,
+    "inhibit": false,
+    "state": 0,
+    "group": 1
+  },
+  {
+    "id": "A17",
+    "name": "Puerta Abierta",
+    "type": "NC",
+    "delay": 0,
+    "inhibit": false,
+    "state": 1,
+    "group": 6
+  },
+  {
+    "id": "A18",
+    "name": "Alta Temperatura Caja Reductora",
+    "type": "NO",
+    "delay": 1800,
+    "inhibit": false,
+    "state": 0,
+    "group": 2
+  },
+  {
+    "id": "A19",
+    "name": "Voltaje Excesivo",
+    "type": "NC",
+    "delay": 800,
+    "inhibit": false,
+    "state": 0,
+    "group": 3
+  },
+  {
+    "id": "A20",
+    "name": "Fallo Batería Principal",
+    "type": "NO",
+    "delay": 2000,
+    "inhibit": false,
+    "state": 0,
+    "group": 3
+  },
+  {
+    "id": "A21",
+    "name": "Vibración Caja Crítica",
+    "type": "NC",
+    "delay": 1500,
+    "inhibit": false,
+    "state": 0,
+    "group": 2
+  },
+  {
+    "id": "A22",
+    "name": "Nivel Combustible Crítico",
+    "type": "NO",
+    "delay": 1800,
+    "inhibit": false,
+    "state": 0,
+    "group": 4
+  },
+  {
+    "id": "A23",
+    "name": "Bajo Nivel Aceite Crítico",
+    "type": "NC",
+    "delay": 1000,
+    "inhibit": false,
+    "state": 0,
+    "group": 4
+  },
+  {
+    "id": "A24",
+    "name": "Alta Agua Sentina",
+    "type": "NO",
+    "delay": 1500,
+    "inhibit": false,
+    "state": 0,
+    "group": 5
+  },
+  {
+    "id": "A25",
+    "name": "Falla Bomba Sentina Crítica",
+    "type": "NC",
+    "delay": 2000,
+    "inhibit": false,
+    "state": 0,
+    "group": 5
+  },
+  {
+    "id": "A26",
+    "name": "Falla Sistema Alarma",
+    "type": "NO",
+    "delay": 0,
+    "inhibit": false,
+    "state": 0,
+    "group": 6
+  },
+  {
+    "id": "A27",
+    "name": "Alta Temperatura Motor Crítica",
+    "type": "NC",
+    "delay": 2000,
+    "inhibit": false,
+    "state": 0,
+    "group": 1
+  },
+  {
+    "id": "A28",
+    "name": "Baja Presión Aceite Crítica",
+    "type": "NO",
+    "delay": 1000,
+    "inhibit": false,
+    "state": 0,
+    "group": 1
+  },
+  {
+    "id": "A29",
+    "name": "Falla Sensor Voltaje Crítica",
+    "type": "NC",
+    "delay": 1500,
+    "inhibit": false,
+    "state": 0,
+    "group": 3
+  },
+  {
+    "id": "A30",
+    "name": "Bomba Sentina Fallida Crítica",
+    "type": "NO",
+    "delay": 2000,
+    "inhibit": false,
+    "state": 0,
+    "group": 5
+  },
+  {
+    "id": "A31",
+    "name": "Nivel Agua Muy Bajo",
+    "type": "NC",
+    "delay": 1500,
+    "inhibit": false,
+    "state": 0,
+    "group": 4
+  },
+  {
+    "id": "A32",
+    "name": "Fuga de Combustible Grave",
+    "type": "NO",
+    "delay": 0,
+    "inhibit": false,
+    "state": 0,
+    "group": 1
+  },
+  {
+    "id": "A33",
+    "name": "Humo Denso Detectado",
+    "type": "NC",
+    "delay": 500,
+    "inhibit": false,
+    "state": 0,
+    "group": 6
+  },
+  {
+    "id": "A34",
+    "name": "Corriente de Arranque Peligrosa",
+    "type": "NO",
+    "delay": 500,
+    "inhibit": false,
+    "state": 0,
+    "group": 1
+  },
+  {
+    "id": "A35",
+    "name": "Bajo Nivel de Refrigerante Crítico",
+    "type": "NC",
+    "delay": 2500,
+    "inhibit": false,
+    "state": 0,
+    "group": 1
+  },
+  {
+    "id": "A36",
+    "name": "Alta Temperatura de Escape Crítica",
+    "type": "NO",
+    "delay": 1200,
+    "inhibit": false,
+    "state": 0,
+    "group": 1
+  },
+  {
+    "id": "A37",
+    "name": "Baja Tensión General Crítica",
+    "type": "NC",
+    "delay": 1000,
+    "inhibit": false,
+    "state": 0,
+    "group": 3
+  },
+  {
+    "id": "A38",
+    "name": "Fuego Extenso Detectado",
+    "type": "NO",
+    "delay": 1000,
+    "inhibit": false,
+    "state": 0,
+    "group": 6
+  },
+  {
+    "id": "A39",
+    "name": "Falla de Inyección Motor",
+    "type": "NC",
+    "delay": 1200,
+    "inhibit": false,
+    "state": 0,
+    "group": 1
+  },
+
+  {
+    "id": "A41",
+    "name": "Baja Presión Caja Reductora",
+    "type": "NC",
+    "delay": 1000,
+    "inhibit": false,
+    "state": 0,
+    "group": 2
+  },
+  {
+    "id": "A42",
+    "name": "Falla Engranaje Principal",
+    "type": "NO",
+    "delay": 2000,
+    "inhibit": false,
+    "state": 0,
+    "group": 2
+  },
+  {
+    "id": "A43",
+    "name": "Corto Circuito Detectado",
+    "type": "NC",
+    "delay": 500,
+    "inhibit": false,
+    "state": 0,
+    "group": 3
+  },
+  {
+    "id": "A44",
+    "name": "Fallo Generador Principal",
+    "type": "NO",
+    "delay": 1500,
+    "inhibit": false,
+    "state": 0,
+    "group": 3
+  },
+  {
+    "id": "A45",
+    "name": "Nivel de Aceite Bajo",
+    "type": "NC",
+    "delay": 1000,
+    "inhibit": false,
+    "state": 0,
+    "group": 4
+  },
+  {
+    "id": "A46",
+    "name": "Nivel de Agua Crítico",
+    "type": "NO",
+    "delay": 2000,
+    "inhibit": false,
+    "state": 0,
+    "group": 4
+  },
+  {
+    "id": "A47",
+    "name": "Obstrucción en Bomba Sentina",
+    "type": "NC",
+    "delay": 1800,
+    "inhibit": false,
+    "state": 0,
+    "group": 5
+  },
+  {
+    "id": "A48",
+    "name": "Fuga de Agua en Sentina",
+    "type": "NO",
+    "delay": 1500,
+    "inhibit": false,
+    "state": 0,
+    "group": 5
+  },
+  {
+    "id": "A49",
+    "name": "Puerta de Emergencia Abierta",
+    "type": "NC",
+    "delay": 0,
+    "inhibit": false,
+    "state": 0,
+    "group": 6
+  },
+  {
+    "id": "A50",
+    "name": "Falla en Sistema de Alarma",
+    "type": "NO",
+    "delay": 0,
+    "inhibit": false,
+    "state": 0,
+    "group": 6
+  },
+  {
+    "id": "A51",
+    "name": "Falla en Sensor de Temperatura",
+    "type": "NC",
+    "delay": 1000,
+    "inhibit": false,
+    "state": 0,
+    "group": 1
+  },
+  {
+    "id": "A52",
+    "name": "Baja Presión en Sistema Hidráulico",
+    "type": "NO",
+    "delay": 1200,
+    "inhibit": false,
+    "state": 0,
+    "group": 2
+  },
+  {
+    "id": "A53",
+    "name": "Corto en Circuito de Iluminación",
+    "type": "NC",
+    "delay": 800,
+    "inhibit": false,
+    "state": 1,
+    "group": 3
+  },
+  {
+    "id": "A54",
+    "name": "Nivel de Combustible Bajo Crítico",
+    "type": "NO",
+    "delay": 2000,
+    "inhibit": false,
+    "state": 0,
+    "group": 4
+  },
+  {
+    "id": "A55",
+    "name": "Obstrucción en Tubería de Sentina",
+    "type": "NC",
+    "delay": 1800,
+    "inhibit": false,
+    "state": 0,
+    "group": 5
+  },
+  {
+    "id": "A56",
+    "name": "Puerta de Cabina Abierta",
+    "type": "NO",
+    "delay": 0,
+    "inhibit": false,
+    "state": 0,
+    "group": 6
+  },
+  {
+    "id": "A57",
+    "name": "Sobrecalentamiento Caja",
+    "type": "NC",
+    "delay": 1500,
+    "inhibit": false,
+    "state": 1,
+    "group": 2
+  },
+  {
+    "id": "A58",
+    "name": "Falla en Generador Auxiliar",
+    "type": "NO",
+    "delay": 2000,
+    "inhibit": false,
+    "state": 0,
+    "group": 3
+  },
+  {
+    "id": "A59",
+    "name": "Nivel de Aceite Crítico",
+    "type": "NC",
+    "delay": 1000,
+    "inhibit": false,
+    "state": 0,
+    "group": 4
+  },
+  {
+    "id": "A60",
+    "name": "Fuga de Agua en Tanque de Sentina",
+    "type": "NO",
+    "delay": 1500,
+    "inhibit": false,
+    "state": 0,
+    "group": 5
+  },
+  {
+    "id": "A61",
+    "name": "Falla Sistema de Alarma Principal",
+    "type": "NC",
+    "delay": 0,
+    "inhibit": false,
+    "state": 1,
+    "group": 6
+  },
+  {
+    "id": "A64",
+    "name": "Baja Presión en Caja Reductora",
+    "type": "NO",
+    "delay": 1000,
+    "inhibit": false,
+    "state": 0,
+    "group": 2
+  },
+  {
+    "id": "A65",
+    "name": "Corto Circuito en Sistema de Control",
+    "type": "NC",
+    "delay": 500,
+    "inhibit": false,
+    "state": 0,
+    "group": 3
+  },
+  {
+    "id": "A66",
+    "name": "Nivel de Agua Bajo en Tanque",
+    "type": "NO",
+    "delay": 1500,
+    "inhibit": false,
+    "state": 0,
+    "group": 4
+  },
+  {
+    "id": "A67",
+    "name": "Obstrucción en Filtro de Sentina",
+    "type": "NC",
+    "delay": 1800,
+    "inhibit": false,
+    "state": 0,
+    "group": 5
+  },
+  {
+    "id": "A68",
+    "name": "Puerta de Sala de Máquinas Abierta",
+    "type": "NO",
+    "delay": 0,
+    "inhibit": false,
+    "state": 0,
+    "group": 6
+  },
+  {
+    "id": "A70",
+    "name": "Falla en Engranaje Secundario",
+    "type": "NC",
+    "delay": 2000,
+    "inhibit": false,
+    "state": 0,
+    "group": 2
+  },
+  {
+    "id": "A71",
+    "name": "Sobrevoltaje Detectado",
+    "type": "NO",
+    "delay": 1000,
+    "inhibit": false,
+    "state": 1,
+    "group": 3
+  },
+  {
+    "id": "A72",
+    "name": "Bajo Nivel de Combustible",
+    "type": "NC",
+    "delay": 2000,
+    "inhibit": false,
+    "state": 0,
+    "group": 4
+  },
+  {
+    "id": "A73",
+    "name": "Fuga de Agua en Sistema de Sentina",
+    "type": "NO",
+    "delay": 1500,
+    "inhibit": false,
+    "state": 0,
+    "group": 5
+  },
+  {
+    "id": "A74",
+    "name": "Falla en SistemaSecundario",
+    "type": "NC",
+    "delay": 0,
+    "inhibit": false,
+    "state": 2,
+    "group": 6
+  },
+  {
+    "id": "A77",
+    "name": "Corto en Circuito de Potencia",
+    "type": "NO",
+    "delay": 500,
+    "inhibit": false,
+    "state": 0,
+    "group": 3
+  },
+  {
+    "id": "A78",
+    "name": "Nivel de Agua Crítico en Sentina",
+    "type": "NC",
+    "delay": 2000,
+    "inhibit": false,
+    "state": 0,
+    "group": 5
+  },
+  {
+    "id": "A79",
+    "name": "Puerta Principal Abierta",
+    "type": "NO",
+    "delay": 0,
+    "inhibit": false,
+    "state": 1,
+    "group": 6
+  },
+  {
+    "id": "A80",
+    "name": "Alta T° en Caja Secundaria",
+    "type": "NC",
+    "delay": 1800,
+    "inhibit": false,
+    "state": 0,
+    "group": 2
+  },
+  {
+    "id": "A81",
+    "name": "Falla en Batería Auxiliar",
+    "type": "NO",
+    "delay": 2000,
+    "inhibit": false,
+    "state": 0,
+    "group": 3
+  },
+  {
+    "id": "A82",
+    "name": "Nivel de Aceite Bajo Auxiliar",
+    "type": "NC",
+    "delay": 1000,
+    "inhibit": false,
+    "state": 0,
+    "group": 4
+  },
+  {
+    "id": "A83",
+    "name": "Obstrucción en Válvula de Sentina",
+    "type": "NO",
+    "delay": 1800,
+    "inhibit": false,
+    "state": 0,
+    "group": 5
+  },
+  {
+    "id": "A84",
+    "name": "Falla en Sistema Contra Incendios",
+    "type": "NC",
+    "delay": 0,
+    "inhibit": false,
+    "state": 0,
+    "group": 6
+  },
+  {
+    "id": "A87",
+    "name": "Corto en Sistema de Iluminación",
+    "type": "NO",
+    "delay": 800,
+    "inhibit": false,
+    "state": 4,
+    "group": 3
+  },
+  {
+    "id": "A88",
+    "name": "Nivel Agua en Tanque de Sentina",
+    "type": "NC",
+    "delay": 2000,
+    "inhibit": false,
+    "state": 0,
+    "group": 5
+  },
+  {
+    "id": "A89",
+    "name": "Puerta de Acceso Abierta",
+    "type": "NO",
+    "delay": 0,
+    "inhibit": false,
+    "state": 1,
+    "group": 6
+  },
+
+  {
+    "id": "A91",
+    "name": "Fallo en Sistema de Control",
+    "type": "NO",
+    "delay": 2000,
+    "inhibit": false,
+    "state": 0,
+    "group": 3
+  },
+  {
+    "id": "A92",
+    "name": "Bajo Nivel Aceite Crítico",
+    "type": "NC",
+    "delay": 1000,
+    "inhibit": false,
+    "state": 0,
+    "group": 4
+  },
+  {
+    "id": "A93",
+    "name": "Fuga de Combustible Grave",
+    "type": "NO",
+    "delay": 0,
+    "inhibit": false,
+    "state": 0,
+    "group": 1
+  },
+  {
+    "id": "A94",
+    "name": "Falla Bomba Principal",
+    "type": "NC",
+    "delay": 2000,
+    "inhibit": false,
+    "state": 0,
+    "group": 5
+  },
+  {
+    "id": "A95",
+    "name": "Sistema de Alarma Crítico",
+    "type": "NO",
+    "delay": 0,
+    "inhibit": false,
+    "state": 0,
+    "group": 6
+  }
+]

@@ -1,0 +1,29 @@
+.no-decoration {
+  text-decoration: none;
+}
+
+/* .blink-border {
+  border: 2px solid red;
+  animation: blink 1s infinite;
+  width: 100%;
+  color: tomato;
+} */
+.border-format {
+  border-width: 1px;
+  /* box-shadow: 0 0 4px rgb(76, 190, 23); */
+}
+
+@keyframes blink {
+  0% {
+    border-color: red(38, 0, 255);
+    box-shadow: 0 0 5px red;
+  }
+  50% {
+    border-color: black;
+    box-shadow: 0 0 0 transparent;
+  }
+  100% {
+    border-color: red;
+    box-shadow: 0 0 15px red;
+  }
+}

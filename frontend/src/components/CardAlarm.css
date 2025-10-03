@@ -1,0 +1,27 @@
+.no-decoration {
+  text-decoration: none;
+}
+
+.blink-border {
+  border: 2px solid red;
+  animation: blink 1s infinite;
+}
+.border-format {
+  border-width: 2px;
+  box-shadow: 0 0 3px rgb(252, 250, 250);
+}
+
+@keyframes blink {
+  0% {
+    border-color: red;
+    box-shadow: 0 0 5px red;
+  }
+  50% {
+    border-color: black;
+    box-shadow: 0 0 0 transparent;
+  }
+  100% {
+    border-color: red;
+    box-shadow: 0 0 15px red;
+  }
+}

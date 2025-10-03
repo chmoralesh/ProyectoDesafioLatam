@@ -1,9 +1,11 @@
 import { createContext, useState, useEffect, useContext } from "react";
 import { TokenContext } from "./TokenContext";
 import Swal from "sweetalert2";
+//import { type } from "node:os";
 export const UserContext = createContext();
 
 const UserProvider = ({ children }) => {
+  const apiUrl = import.meta.env.VITE_API_URL;
   //States
   const [actualUser, setActualUser] = useState(null);
   const [actualToken, setActualToken] = useState(null);
@@ -15,7 +17,7 @@ const UserProvider = ({ children }) => {
 
   const handleLogin = async (e, email, password) => {
     e.preventDefault();
-    const response = await fetch("http://localhost:5000/api/auth/login", {
+    const response = await fetch(`${apiUrl}/auth/login`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -52,7 +54,7 @@ const UserProvider = ({ children }) => {
 
   const handleRegister = async (e, email, password) => {
     e.preventDefault();
-    const response = await fetch("http://localhost:5000/api/auth/register", {
+    const response = await fetch(`${apiUrl}/auth/register`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -94,20 +96,27 @@ const UserProvider = ({ children }) => {
   //Método profile
 
   const autoProfile = async () => {
-    const response = await fetch("http://localhost:5000/api/auth/me", {
-      method: "GET",
-      headers: {
-        "Content-Type": "application/json",
-        Authorization: `Bearer ${actualToken}`,
-      },
-    });
+    try {
+      const response = await fetch(`${apiUrl}/auth/me`, {
+        method: "GET",
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: `Bearer ${actualToken}`,
+        },
+      });
 
-    const data = await response.json();
+      const data = await response.json();
 
-    if (response.ok) {
-      return data.email;
-    } else {
-      return "No ha iniciado sesión";
+      if (response.ok) {
+        //console.log("Esto viene: -->", data);
+        return { email: data.email, name: data.name, type: data.type };
+      } else {
+        console.error("Error en la respuesta del servidor:", data);
+        return "No ha iniciado sesión";
+      }
+    } catch (error) {
+      console.error("Error en autoProfile:", error);
+      return { error: "No se pudo conectar al servidor" };
     }
   };
 

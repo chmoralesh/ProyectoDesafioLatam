@@ -2,31 +2,43 @@
   {
     "email": "test@test.com",
     "password": "123123",
-    "id": "UYz_2Vy9rNw7uELQ7AZ8D"
+    "id": "UYz_2Vy9rNw7uELQ7AZ8D",
+    "name": "Juan Pérez",
+    "type": "operador"
   },
   {
     "email": "test2@example.com",
     "password": "123123",
-    "id": "IRtxwlXTbayesgMpnlZYJ"
+    "id": "IRtxwlXTbayesgMpnlZYJ",
+    "name": "María López",
+    "type": "supervisor"
   },
   {
     "email": "ch.moralesh@gmail.com",
     "password": "123456",
-    "id": "9gwf4uslMkDou0yeGVQ8C"
+    "id": "9gwf4uslMkDou0yeGVQ8C",
+    "name": "Christopher Morales",
+    "type": "supervisor"
   },
   {
     "email": "test5@test.com",
     "password": "123123",
-    "id": "4aMNos_c57l65rDKOQBE0"
+    "id": "4aMNos_c57l65rDKOQBE0",
+    "name": "Ana Torres",
+    "type": "operador"
   },
   {
     "email": "dgfgfdgdfg@gfd.cl",
     "password": "123456",
-    "id": "lplNo_2nnuZEqeicRQ0Bp"
+    "id": "lplNo_2nnuZEqeicRQ0Bp",
+    "name": "Pedro Ramírez",
+    "type": "supervisor"
   },
   {
     "email": "pruebafinal_1@test.cl",
     "password": "123456",
-    "id": "QEYmVGzyh3DA7Lkda8XrQ"
+    "id": "QEYmVGzyh3DA7Lkda8XrQ",
+    "name": "Sofía Herrera",
+    "type": "superuser"
   }
 ]

@@ -3,6 +3,7 @@ import jwt from "jsonwebtoken";
 import { nanoid } from "nanoid";
 import { authModel } from "../models/auth.model.js";
 import { isValidEmail } from "../utils/validators/email.validate.js";
+import { type } from "node:os";
 
 const login = async (req, res) => {
   try {
@@ -81,7 +82,8 @@ const me = async (req, res) => {
   try {
     const { email } = req.user;
     const user = await authModel.getUserByEmail(email);
-    return res.json({ email, id: user.id });
+    // console.log(user.type);
+    return res.json({ email, id: user.id, name: user.name, type: user.type });
   } catch (error) {
     // console.log(error);
     return res.status(500).json({ error: "Server error" });
